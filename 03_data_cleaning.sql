@@ -3,22 +3,21 @@
    Project: Sales Data Analysis & MIS Dashboard
 
    Description:
-   Performs data validation and cleaning before analysis.
-   Ensures sales, product, and inventory data are consistent.
+   This script performs basic data validation and cleaning
+   to ensure data quality before analysis.
    ============================================================ */
 
-USE SalesAnalyticsDB;
+USE Dataware_house;
 GO
-
 
 /* ------------------------------------------------------------
 1. Check duplicate sales transactions
 If duplicates exist, they can affect revenue calculations.
 ------------------------------------------------------------ */
 
-SELECT ProductID, StoreID, OrderDate, COUNT(*) AS DuplicateCount
-FROM Sales
-GROUP BY ProductID, StoreID, OrderDate
+SELECT ProductID, StoreID, Date, COUNT(*) AS DuplicateCount
+FROM [dbo].[Sales csv]
+GROUP BY ProductID, StoreID, Date
 HAVING COUNT(*) > 1;
 
 
@@ -29,10 +28,10 @@ These fields should not be empty.
 ------------------------------------------------------------ */
 
 SELECT *
-FROM Sales
-WHERE OrderDate IS NULL
+FROM [dbo].[Sales csv]
+WHERE Date IS NULL
    OR Quantity IS NULL
-   OR SellingPrice IS NULL;
+   OR Discount IS NULL;
 
 
 
@@ -41,7 +40,7 @@ WHERE OrderDate IS NULL
 Quantity should always be positive.
 ------------------------------------------------------------ */
 
-UPDATE Sales
+UPDATE [dbo].[Sales csv]
 SET Quantity = ABS(Quantity)
 WHERE Quantity < 0;
 
@@ -51,7 +50,7 @@ WHERE Quantity < 0;
 4. Standardize product names (remove extra spaces)
 ------------------------------------------------------------ */
 
-UPDATE Products
+UPDATE [dbo].[Products csv]
 SET ProductName = LTRIM(RTRIM(ProductName));
 
 
@@ -61,7 +60,7 @@ SET ProductName = LTRIM(RTRIM(ProductName));
 CurrentStock should never be negative.
 ------------------------------------------------------------ */
 
-UPDATE Inventory
+UPDATE [dbo].[Inventory csv] 
 SET CurrentStock = 0
 WHERE CurrentStock < 0;
 
@@ -73,7 +72,7 @@ This identifies data integrity issues.
 ------------------------------------------------------------ */
 
 SELECT DISTINCT s.ProductID
-FROM Sales s
-LEFT JOIN Products p
+FROM  [dbo].[Sales csv] s
+LEFT JOIN [dbo].[Products csv] p
 ON s.ProductID = p.ProductID
 WHERE p.ProductID IS NULL;
