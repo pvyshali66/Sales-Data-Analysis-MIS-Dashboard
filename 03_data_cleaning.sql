@@ -3,8 +3,8 @@
    Project: Sales Data Analysis & MIS Dashboard
 
    Description:
-   This script performs basic data validation and cleaning
-   to ensure data quality before analysis.
+   Performs data validation and cleaning before analysis.
+   Ensures sales, product, and inventory data are consistent.
    ============================================================ */
 
 USE SalesAnalyticsDB;
@@ -12,26 +12,20 @@ GO
 
 
 /* ------------------------------------------------------------
-1. Remove duplicate sales records
-Duplicates may occur during data import.
+1. Check duplicate sales transactions
+If duplicates exist, they can affect revenue calculations.
 ------------------------------------------------------------ */
 
-WITH DuplicateSales AS (
-    SELECT *,
-           ROW_NUMBER() OVER (
-               PARTITION BY OrderID
-               ORDER BY OrderID
-           ) AS rn
-    FROM Sales
-)
-DELETE FROM DuplicateSales
-WHERE rn > 1;
+SELECT ProductID, StoreID, OrderDate, COUNT(*) AS DuplicateCount
+FROM Sales
+GROUP BY ProductID, StoreID, OrderDate
+HAVING COUNT(*) > 1;
 
 
 
 /* ------------------------------------------------------------
 2. Check for NULL values in critical columns
-These fields must not be empty.
+These fields should not be empty.
 ------------------------------------------------------------ */
 
 SELECT *
@@ -43,8 +37,8 @@ WHERE OrderDate IS NULL
 
 
 /* ------------------------------------------------------------
-3. Fix negative or incorrect quantity values
-Sales quantity should always be positive.
+3. Fix negative quantity values
+Quantity should always be positive.
 ------------------------------------------------------------ */
 
 UPDATE Sales
@@ -69,4 +63,17 @@ CurrentStock should never be negative.
 
 UPDATE Inventory
 SET CurrentStock = 0
-WHERE CurrentStock < 0
+WHERE CurrentStock < 0;
+
+
+
+/* ------------------------------------------------------------
+6. Check for products in sales that don't exist in Products table
+This identifies data integrity issues.
+------------------------------------------------------------ */
+
+SELECT DISTINCT s.ProductID
+FROM Sales s
+LEFT JOIN Products p
+ON s.ProductID = p.ProductID
+WHERE p.ProductID IS NULL;
