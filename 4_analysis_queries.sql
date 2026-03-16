@@ -142,7 +142,7 @@ GROUP BY YEAR(CAST(s.Date AS DATE));
    What is the total profit generated from all sales?
 
    Logic:
-   Profit = (SellingPrice − CostPrice) × Quantity
+   Profit = (SellingPrice ? CostPrice) × Quantity
    ============================================================ */
 
 SELECT 
@@ -190,7 +190,7 @@ ON s.ProductID = p.ProductID;
 
    Logic:
    Compare CurrentStock with ReorderLevel.
-   If CurrentStock < ReorderLevel → reorder required.
+   If CurrentStock < ReorderLevel ? reorder required.
    ============================================================ */
 
 SELECT  
