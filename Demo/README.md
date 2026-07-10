@@ -18,4 +18,8 @@ This demo showcases the interactive capabilities of the **Sales & Inventory MIS 
 
 📁 **Demo Video**
 
-Demo/Sales_Dashboard_Demo.mp4
+Demo/Sales_Dashboard_Demo.mp4## 🎥 Dashboard Demo
+
+Google Drive Demo:
+
+![demo]("C:\Users\pvysh\OneDrive\Sales_Dashboard_Demo.mp4.mp4")
