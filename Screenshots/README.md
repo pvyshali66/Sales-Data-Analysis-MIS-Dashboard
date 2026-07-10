@@ -1,7 +1,7 @@
 # 📸 Dashboard Preview
 
 ## Sales & Inventory MIS Dashboard
-![Dashboard](Screenshots/Sales_Inventory_Dashboard_Page.png)
+![Dashboard](Sales_Inventory_Dashboard_Page.png)
 
 ### Dashboard Overview
 
