@@ -154,26 +154,7 @@ Sales-Data-Analysis-MIS-Dashboard
 
 ---
 
-# 🚀 How to Run
 
-1. Execute the SQL database setup script.
-2. Import the sample dataset.
-3. Open the Power BI (.pbix) file.
-4. Update the SQL Server connection if required.
-5. Refresh the report.
-
----
-
-# 🔮 Future Enhancements
-
-- Publish to Power BI Service
-- Scheduled Refresh
-- Row-Level Security (RLS)
-- Drill-through Pages
-- Dynamic Tooltips
-- Star Schema Optimization
-
----
 
 # 👩‍💻 Author
 
