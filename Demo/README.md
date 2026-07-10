@@ -22,4 +22,4 @@ Demo/Sales_Dashboard_Demo.mp4## 🎥 Dashboard Demo
 
 Google Drive Demo:
 
-![demo]("C:\Users\pvysh\OneDrive\Sales_Dashboard_Demo.mp4.mp4")
+[▶️ Watch Dashboard Demo](Demo/Sales_Dashboard_Demo.mp4)
