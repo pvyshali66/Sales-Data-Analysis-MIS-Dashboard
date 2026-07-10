@@ -70,7 +70,7 @@ The Power BI dashboard provides an executive view of business performance using 
 
 ## Dashboard Preview
 
-![Dashboard](Screenshots/Sales_Inventory_Dashboard.png)
+![Dashboard](Screenshots/README.md)
 
 ---
 
