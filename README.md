@@ -124,37 +124,7 @@ The Power BI dashboard provides an executive view of business performance using 
 Example:
 
 https://github.com/YourUsername/Sales-Data-Analysis-MIS-Dashboard/blob/main/Demo/Sales_Dashboard_Demo.mp4
-
 ---
-
-# 📁 Repository Structure
-
-Sales-Data-Analysis-MIS-Dashboard
-
-├── Dashboard/
-│   └── Sales_Inventory_MIS_Dashboard.pbix
-│
-├── Dataset/
-│   └── Sales_Data.xlsx
-│
-├── SQL Scripts/
-│   ├── 1_Database_Setup.sql
-│   ├── 2_Data_Inserts.sql
-│   └── 3_Analysis_Queries.sql
-│
-├── Screenshots/
-│   └── Sales_Inventory_Dashboard.png
-│
-├── Demo/
-│   └── Sales_Dashboard_Demo.mp4
-│
-├── README.md
-├── LICENSE
-└── .gitignore
-
----
-
-
 
 # 👩‍💻 Author
 
