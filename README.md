@@ -121,10 +121,8 @@ The Power BI dashboard provides an executive view of business performance using 
 
 (Add your MP4 walkthrough here)
 
-Example:
 
-https://github.com/YourUsername/Sales-Data-Analysis-MIS-Dashboard/blob/main/Demo/Sales_Dashboard_Demo.mp4
----
+[▶️ Watch Dashboard Demo](Demo/Sales_Dashboard_Demo.mp4)
 
 # 👩‍💻 Author
 
